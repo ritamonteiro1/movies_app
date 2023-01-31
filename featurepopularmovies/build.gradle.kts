@@ -8,7 +8,7 @@ plugins {
 android {
     compileSdk = Android.COMPILE
     buildToolsVersion = AppConfig.BUILD_TOOLS_VERSION
-    namespace = "com.example.moviesapp"
+    namespace = AppConfig.APPLICATION_ID
 
     defaultConfig {
         minSdk = Android.MIN
@@ -80,4 +80,5 @@ dependencies {
     implementation(project(path = ":core"))
     implementation(project(path = ":navigation"))
     implementation(project(path = ":data"))
+    implementation(project(path = ":designsystem"))
 }

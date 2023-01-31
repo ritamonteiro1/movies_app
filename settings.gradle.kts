@@ -23,6 +23,6 @@ include(
     ":di",
     ":navigation",
     ":featurepopularmovies",
-    ":featuresimilarmovies"
+    ":featuresimilarmovies",
+    ":designsystem"
 )
-
