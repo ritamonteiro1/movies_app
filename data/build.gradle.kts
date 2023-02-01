@@ -49,4 +49,6 @@ dependencies {
     androidTestImplementation(Libs.ESPRESSO)
     testImplementation(Libs.JUNIT4)
     testImplementation(Libs.MOCKK)
+    implementation(project(":featurepopularmovies"))
+    implementation(project(":featuresimilarmovies"))
 }

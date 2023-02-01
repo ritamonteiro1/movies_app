@@ -79,6 +79,5 @@ dependencies {
     testImplementation(Libs.MOCKK)
     implementation(project(path = ":core"))
     implementation(project(path = ":navigation"))
-    implementation(project(path = ":data"))
     implementation(project(path = ":designsystem"))
 }
