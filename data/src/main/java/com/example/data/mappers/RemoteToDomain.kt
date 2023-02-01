@@ -22,10 +22,10 @@ fun MovieListResponse.toPopularDomain(): PopularMovieList {
     )
 }
 
-fun MovieResponse.toPopularDomain():PopularMovie{
+fun MovieResponse.toPopularDomain(): PopularMovie {
     return PopularMovie(
         id = id ?: Default.INT,
-        title = title.orEmpty() ,
+        title = title.orEmpty(),
         overview = overview.orEmpty(),
         posterPath = posterPath.orEmpty(),
         backdropPath = backdropPath.orEmpty(),
@@ -34,7 +34,7 @@ fun MovieResponse.toPopularDomain():PopularMovie{
     )
 }
 
-fun MovieDetailResponse.toPopularDomain(): PopularMovieDetail{
+fun MovieDetailResponse.toPopularDomain(): PopularMovieDetail {
     return PopularMovieDetail(
         backdropPath = backdropPath.orEmpty(),
         genres = genres?.map { it.name.orEmpty() }.orEmpty(),
@@ -55,10 +55,10 @@ fun MovieListResponse.toSimilarDomain(): SimilarMovieList {
     )
 }
 
-fun MovieResponse.toSimilarDomain(): SimilarMovie{
+fun MovieResponse.toSimilarDomain(): SimilarMovie {
     return SimilarMovie(
         id = id ?: Default.INT,
-        title = title.orEmpty() ,
+        title = title.orEmpty(),
         overview = overview.orEmpty(),
         posterPath = posterPath.orEmpty(),
         backdropPath = backdropPath.orEmpty(),
