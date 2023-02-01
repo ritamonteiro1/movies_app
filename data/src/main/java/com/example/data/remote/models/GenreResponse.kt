@@ -1,4 +1,4 @@
-package com.example.data.models
+package com.example.data.remote.models
 
 
 data class GenreResponse(
