@@ -6,6 +6,7 @@ object BuildPlugins {
     const val KOTLIN_PARCELIZE = "kotlin-parcelize"
     const val ANDROID_LIBRARY = "com.android.library"
     const val KOTLIN_KAPT = "kotlin-kapt"
+    const val KOTLIN = "kotlin"
 }
 
 object AppConfig {
