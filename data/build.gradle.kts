@@ -51,4 +51,5 @@ dependencies {
     testImplementation(Libs.MOCKK)
     implementation(project(":featurepopularmovies"))
     implementation(project(":featuresimilarmovies"))
+    implementation(project(":core"))
 }
