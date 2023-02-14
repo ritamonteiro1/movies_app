@@ -43,6 +43,7 @@ dependencies {
     implementation(Libs.MATERIAL_DESIGN)
     implementation(Libs.CONSTRAINT_LAYOUT)
     implementation(Libs.KOTLIN_STD_VERSION)
+    implementation(Libs.LOTTIE)
     koin()
     implementation(project(path = ":di"))
     implementation(project(path = ":featurepopularmovies"))

@@ -69,6 +69,7 @@ dependencies {
     navigation()
     coroutines()
     lifecycle()
+    paging()
     implementation(Libs.COIL_COMPOSE)
     implementation(Libs.SYSTEM_UI_COMPOSE)
     implementation(Libs.LEGACY_SUPPORT)

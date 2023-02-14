@@ -31,6 +31,10 @@ object Libs {
         "androidx.test.ext:junit:${Versions.JUNIT_EXT_VERSION}"
     const val ESPRESSO =
         "androidx.test.espresso:espresso-core:${Versions.ESPRESSO_VERSION}"
+    const val GLIDE =
+        "com.github.bumptech.glide:glide:${Versions.GLIDE_VERSION}"
+    const val LOTTIE =
+        "com.airbnb.android:lottie:${Versions.GLIDE_VERSION}"
 }
 
 fun DependencyHandlerScope.androidx() {
@@ -81,4 +85,9 @@ fun DependencyHandlerScope.lifecycle() {
 fun DependencyHandlerScope.navigation() {
     "implementation"("androidx.navigation:navigation-fragment-ktx:${Versions.NAVIGATION_VERSION}")
     "implementation"("androidx.navigation:navigation-ui-ktx:${Versions.NAVIGATION_VERSION}")
+}
+
+fun DependencyHandlerScope.paging() {
+    "implementation"("androidx.paging:paging-runtime:${Versions.PAGING_VERSION}")
+    "implementation"("androidx.paging:paging-compose:1.0.0-alpha17")
 }
