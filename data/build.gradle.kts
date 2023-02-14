@@ -44,6 +44,7 @@ dependencies {
     retrofit()
     implementation(Libs.HTTP_INTERCEPTOR)
     room()
+    paging()
     androidTestImplementation(Libs.JUNIT_EXT)
     androidTestImplementation(Libs.ESPRESSO)
     testImplementation(Libs.JUNIT4)
