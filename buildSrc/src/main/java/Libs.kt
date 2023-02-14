@@ -54,6 +54,8 @@ fun DependencyHandlerScope.coroutines() {
 }
 
 fun DependencyHandlerScope.koin() {
+    "implementation"("io.insert-koin:koin-core:${Versions.KOIN_VERSION}")
+    "implementation"("io.insert-koin:koin-android:${Versions.KOIN_VERSION}")
     "implementation"("io.insert-koin:koin-androidx-scope:${Versions.KOIN_VERSION}")
     "implementation"("io.insert-koin:koin-androidx-viewmodel:${Versions.KOIN_VERSION}")
     "implementation"("io.insert-koin:koin-androidx-fragment:${Versions.KOIN_VERSION}")

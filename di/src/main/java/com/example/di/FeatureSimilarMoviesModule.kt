@@ -2,6 +2,6 @@ package com.example.di
 
 import org.koin.dsl.module
 
-val dataModule = module {
+val featureSimilarMoviesModule = module {
 
 }
