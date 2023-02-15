@@ -34,7 +34,7 @@ object Libs {
     const val GLIDE =
         "com.github.bumptech.glide:glide:${Versions.GLIDE_VERSION}"
     const val LOTTIE =
-        "com.airbnb.android:lottie:${Versions.GLIDE_VERSION}"
+        "com.airbnb.android:lottie:${Versions.LOTTIE_VERSION}"
 }
 
 fun DependencyHandlerScope.androidx() {
