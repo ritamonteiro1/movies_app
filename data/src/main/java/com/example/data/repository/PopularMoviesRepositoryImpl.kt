@@ -5,6 +5,8 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.map
 import com.example.core.utils.Result
+import com.example.data.local.datasource.PopularMoviesCacheDataSource
+import com.example.data.mappers.toPopularCache
 import com.example.data.mappers.toPopularDomain
 import com.example.data.pagingsource.PopularMoviePagingSource
 import com.example.data.remote.datasource.PopularMoviesRemoteDataSource
@@ -15,7 +17,8 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
 class PopularMoviesRepositoryImpl(
-    private val remoteDataSource: PopularMoviesRemoteDataSource
+    private val remoteDataSource: PopularMoviesRemoteDataSource,
+    private val cacheDataSource: PopularMoviesCacheDataSource
 ) : PopularMoviesRepository {
 
     override fun getPopularMovies(): Flow<PagingData<PopularMovie>> {
@@ -39,6 +42,20 @@ class PopularMoviesRepositoryImpl(
                 Result.Error(result.error)
             }
         }
+    }
+
+    override suspend fun getFavoriteMovies(): List<PopularMovieDetail> {
+        return cacheDataSource.getFavoriteMovies().map { movie ->
+            movie.toPopularDomain()
+        }
+    }
+
+    override suspend fun saveFavoriteMovie(movie: PopularMovieDetail) {
+        cacheDataSource.saveMovie(movie.toPopularCache())
+    }
+
+    override suspend fun deleteFavoriteMovie(movieId: Int) {
+        cacheDataSource.deleteMovie(movieId)
     }
 
 }

@@ -9,4 +9,7 @@ import kotlinx.coroutines.flow.Flow
 interface PopularMoviesRepository {
     fun getPopularMovies(): Flow<PagingData<PopularMovie>>
     suspend fun getPopularMovieDetails(movieId: Int): Result<PopularMovieDetail>
+    suspend fun getFavoriteMovies(): List<PopularMovieDetail>
+    suspend fun saveFavoriteMovie(movie: PopularMovieDetail)
+    suspend fun deleteFavoriteMovie(movieId: Int)
 }
