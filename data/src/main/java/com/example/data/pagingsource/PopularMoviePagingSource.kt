@@ -2,9 +2,9 @@ package com.example.data.pagingsource
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
+import com.example.core.utils.Result
 import com.example.data.remote.datasource.PopularMoviesRemoteDataSource
 import com.example.data.remote.models.MovieResponse
-import com.example.data.remote.utils.Result
 
 private const val STARTING_PAGE_INDEX = 1
 
