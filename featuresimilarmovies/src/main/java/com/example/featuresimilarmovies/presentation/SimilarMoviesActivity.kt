@@ -1,11 +1,11 @@
-package com.example.featurepopularmovies
+package com.example.featuresimilarmovies.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 
-class PopularMoviesActivity : AppCompatActivity() {
+class SimilarMoviesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_popular_movies)
+        setContentView(R.layout.activity_similar_movies)
     }
 }

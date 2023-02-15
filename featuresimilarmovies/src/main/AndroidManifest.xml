@@ -1,2 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.example.featuresimilarmovies" />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.featuresimilarmovies">
+
+    <application>
+        <activity
+            android:name=".SimilarMoviesActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+    </application>
+
+</manifest>
