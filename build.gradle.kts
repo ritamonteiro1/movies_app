@@ -8,6 +8,7 @@ buildscript {
         classpath(ClasspathDependenciesLibs.ANDROID_GRADLE_PLUGIN)
         classpath(ClasspathDependenciesLibs.KOTLIN_GRADLE_PLUGIN)
         classpath(ClasspathDependenciesLibs.NAV_SAFE_ARGS)
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.10")
     }
 }
 

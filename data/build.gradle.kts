@@ -8,7 +8,6 @@ plugins {
 android {
     compileSdk = Android.COMPILE
     buildToolsVersion = AppConfig.BUILD_TOOLS_VERSION
-    namespace = AppConfig.APPLICATION_ID
 
     defaultConfig {
         minSdk = Android.MIN
@@ -45,6 +44,7 @@ dependencies {
     retrofit()
     implementation(Libs.HTTP_INTERCEPTOR)
     room()
+    paging()
     androidTestImplementation(Libs.JUNIT_EXT)
     androidTestImplementation(Libs.ESPRESSO)
     testImplementation(Libs.JUNIT4)

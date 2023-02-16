@@ -3,12 +3,12 @@ plugins {
     id(BuildPlugins.KOTLIN_ANDROID)
     id(BuildPlugins.KOTLIN_PARCELIZE)
     id(BuildPlugins.KOTLIN_KAPT)
+    id("org.jetbrains.kotlin.android")
 }
 
 android {
     compileSdk = Android.COMPILE
     buildToolsVersion = AppConfig.BUILD_TOOLS_VERSION
-    namespace = AppConfig.APPLICATION_ID
 
     defaultConfig {
         minSdk = Android.MIN
@@ -58,6 +58,9 @@ android {
 }
 
 dependencies {
+    implementation("androidx.appcompat:appcompat:1.6.0")
+    implementation("com.google.android.material:material:1.4.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     androidx()
     implementation(Libs.MATERIAL_DESIGN)
     implementation(Libs.CONSTRAINT_LAYOUT)
@@ -70,6 +73,7 @@ dependencies {
     navigation()
     coroutines()
     lifecycle()
+    paging()
     implementation(Libs.COIL_COMPOSE)
     implementation(Libs.SYSTEM_UI_COMPOSE)
     implementation(Libs.LEGACY_SUPPORT)

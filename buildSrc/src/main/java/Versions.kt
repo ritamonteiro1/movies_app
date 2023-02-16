@@ -19,6 +19,9 @@ object Versions {
     const val NAVIGATION_VERSION = "2.5.3"
     const val SYSTEM_UI_CONTROLLER_COMPOSE = "0.17.0"
     const val LEGACY_SUPPORT_VERSION = "1.0.0"
+    const val GLIDE_VERSION = "4.14.2"
+    const val PAGING_VERSION = "3.0.0"
+    const val LOTTIE_VERSION = "3.4.0"
 
     //Test Libraries Version
     const val JUNIT4_VERSION = "4.13.2"

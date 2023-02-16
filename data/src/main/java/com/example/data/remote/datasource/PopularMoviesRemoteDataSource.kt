@@ -1,9 +1,10 @@
 package com.example.data.remote.datasource
 
+import com.example.core.utils.Result
 import com.example.data.remote.api.PopularMoviesService
 import com.example.data.remote.models.MovieDetailResponse
 import com.example.data.remote.models.MovieListResponse
-import com.example.data.remote.utils.Result
+import com.example.data.remote.utils.dataWrapper
 
 interface PopularMoviesRemoteDataSource {
     suspend fun getPopularMovies(page: Int) : Result<MovieListResponse>
@@ -14,13 +15,13 @@ class PopularMoviesRemoteDataSourceImpl(
     private val service: PopularMoviesService
 ) : PopularMoviesRemoteDataSource {
     override suspend fun getPopularMovies(page: Int): Result<MovieListResponse> {
-        return Result.guard {
+        return dataWrapper {
             service.getPopularMovies(page)
         }
     }
 
     override suspend fun getMovieDetails(movieId: Int): Result<MovieDetailResponse> {
-        return Result.guard {
+        return dataWrapper {
             service.getMovieDetails(movieId)
         }
     }

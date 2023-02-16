@@ -8,7 +8,6 @@ plugins {
 android {
     compileSdk = Android.COMPILE
     buildToolsVersion = AppConfig.BUILD_TOOLS_VERSION
-    namespace = AppConfig.APPLICATION_ID
 
     defaultConfig {
         minSdk = Android.MIN

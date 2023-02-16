@@ -2,12 +2,12 @@ plugins {
     id(BuildPlugins.ANDROID_APPLICATION)
     id(BuildPlugins.KOTLIN_ANDROID)
     id(BuildPlugins.KOTLIN_PARCELIZE)
+    id("org.jetbrains.kotlin.android")
 }
 
 android {
     compileSdk = Android.COMPILE
     buildToolsVersion = AppConfig.BUILD_TOOLS_VERSION
-    namespace = AppConfig.APPLICATION_ID
 
     defaultConfig {
         applicationId = AppConfig.APPLICATION_ID
@@ -40,10 +40,14 @@ android {
 }
 
 dependencies {
+    implementation("androidx.appcompat:appcompat:1.6.0")
+    implementation("com.google.android.material:material:1.4.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     androidx()
     implementation(Libs.MATERIAL_DESIGN)
     implementation(Libs.CONSTRAINT_LAYOUT)
     implementation(Libs.KOTLIN_STD_VERSION)
+    implementation(Libs.LOTTIE)
     koin()
     implementation(project(path = ":di"))
     implementation(project(path = ":featurepopularmovies"))
