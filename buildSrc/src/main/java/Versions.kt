@@ -1,7 +1,7 @@
 object Versions {
 
     //ClassPathDependencies
-    const val ANDROID_GRADLE_PLUGIN_VERSION = "7.3.0"
+    const val ANDROID_GRADLE_PLUGIN_VERSION = "7.4.0"
     const val KOTLIN_VERSION = "1.7.20"
     const val NAV_SAFE_ARGS_VERSION = "2.4.2"
 
@@ -9,7 +9,7 @@ object Versions {
     const val APP_COMPAT_VERSION = "1.6.0"
     const val CORE_KTX_VERSION = "1.9.0"
     const val MATERIAL_DESIGN_VERSION = "1.4.0"
-    const val CONSTRAINT_LAYOUT = "2.0.4"
+    const val CONSTRAINT_LAYOUT = "2.1.4"
     const val KOIN_VERSION = "3.3.2"
     const val ROOM_VERSION = "2.5.0"
     const val RETROFIT = "2.9.0"

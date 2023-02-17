@@ -2,7 +2,6 @@ plugins {
     id(BuildPlugins.ANDROID_APPLICATION)
     id(BuildPlugins.KOTLIN_ANDROID)
     id(BuildPlugins.KOTLIN_PARCELIZE)
-    id("org.jetbrains.kotlin.android")
 }
 
 android {
@@ -40,9 +39,6 @@ android {
 }
 
 dependencies {
-    implementation("androidx.appcompat:appcompat:1.6.0")
-    implementation("com.google.android.material:material:1.4.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     androidx()
     implementation(Libs.MATERIAL_DESIGN)
     implementation(Libs.CONSTRAINT_LAYOUT)
