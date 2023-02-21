@@ -40,12 +40,9 @@ android {
 
 dependencies {
     androidx()
-    implementation(Libs.MATERIAL_DESIGN)
-    implementation(Libs.CONSTRAINT_LAYOUT)
-    implementation(Libs.KOTLIN_STD_VERSION)
-    implementation(Libs.LOTTIE)
+    lottie()
     koin()
-    implementation(project(path = ":di"))
-    implementation(project(path = ":featurepopularmovies"))
-    implementation(project(path = ":featuresimilarmovies"))
+    implementation(project(path = Modules.DI))
+    implementation(project(path = Modules.FEATURE_POPULAR_MOVIES))
+    implementation(project(path = Modules.FEATURE_SIMILAR_MOVIES))
 }

@@ -39,17 +39,15 @@ android {
 
 
 dependencies {
-    implementation(Libs.KOTLIN_STD_VERSION)
     coroutines()
     retrofit()
-    implementation(Libs.HTTP_INTERCEPTOR)
+    okHttpInterceptor()
     room()
     paging()
-    androidTestImplementation(Libs.JUNIT_EXT)
-    androidTestImplementation(Libs.ESPRESSO)
-    testImplementation(Libs.JUNIT4)
-    testImplementation(Libs.MOCKK)
-    implementation(project(":featurepopularmovies"))
-    implementation(project(":featuresimilarmovies"))
-    implementation(project(":core"))
+    jUnit()
+    espresso()
+    mockK()
+    implementation(project(path = Modules.FEATURE_POPULAR_MOVIES))
+    implementation(project(path = Modules.FEATURE_SIMILAR_MOVIES))
+    implementation(project(path = Modules.CORE))
 }

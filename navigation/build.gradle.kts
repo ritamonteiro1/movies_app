@@ -39,14 +39,5 @@ android {
 
 dependencies {
     androidx()
-    implementation(Libs.MATERIAL_DESIGN)
-    implementation(Libs.CONSTRAINT_LAYOUT)
-    implementation(Libs.KOTLIN_STD_VERSION)
-    navigation()
-    implementation(Libs.HTTP_INTERCEPTOR)
-    androidTestImplementation(Libs.JUNIT_EXT)
-    androidTestImplementation(Libs.ESPRESSO)
-    testImplementation(Libs.JUNIT4)
-    testImplementation(Libs.MOCKK)
-    implementation(project(path = ":core"))
+    implementation(project(path = Modules.CORE))
 }
