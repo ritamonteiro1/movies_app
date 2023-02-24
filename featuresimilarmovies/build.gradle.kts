@@ -74,4 +74,5 @@ dependencies {
     implementation(project(path = Modules.CORE))
     implementation(project(path = Modules.NAVIGATION))
     implementation(project(path = Modules.DESIGN_SYSTEM))
+    implementation(project(path = Modules.CORE_UI))
 }
