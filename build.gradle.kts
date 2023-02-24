@@ -12,6 +12,10 @@ buildscript {
     }
 }
 
+plugins {
+    id(BuildPlugins.DETEKT).version(Versions.DETEKT)
+}
+
 tasks.register("clean", Delete::class) {
     delete(rootProject.buildDir)
 }

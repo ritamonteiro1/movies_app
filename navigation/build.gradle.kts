@@ -4,6 +4,10 @@ plugins {
     id(BuildPlugins.KOTLIN_PARCELIZE)
 }
 
+apply {
+    from("../config/detekt/detekt.gradle")
+}
+
 android {
     compileSdk = Android.COMPILE
     buildToolsVersion = AppConfig.BUILD_TOOLS_VERSION

@@ -5,6 +5,9 @@ object Versions {
     const val KOTLIN = "1.7.20"
     const val NAV_SAFE_ARGS = "2.4.2"
 
+    //Plugins
+    const val DETEKT = "1.22.0"
+
     //Libraries Version
     const val APP_COMPAT = "1.6.0"
     const val CORE_KTX = "1.9.0"
