@@ -7,6 +7,7 @@ object BuildPlugins {
     const val ANDROID_LIBRARY = "com.android.library"
     const val KOTLIN_KAPT = "kotlin-kapt"
     const val KOTLIN = "kotlin"
+    const val DETEKT = "io.gitlab.arturbosch.detekt"
 }
 
 object AppConfig {

@@ -5,6 +5,10 @@ plugins {
     id(BuildPlugins.KOTLIN_KAPT)
 }
 
+apply {
+    from("../config/detekt/detekt.gradle")
+}
+
 android {
     compileSdk = Android.COMPILE
     buildToolsVersion = AppConfig.BUILD_TOOLS_VERSION
