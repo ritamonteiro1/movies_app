@@ -37,8 +37,5 @@ android {
 
 dependencies {
     androidx()
-    implementation(Libs.MATERIAL_DESIGN)
-    implementation(Libs.CONSTRAINT_LAYOUT)
-    implementation(Libs.KOTLIN_STD_VERSION)
     compose()
 }

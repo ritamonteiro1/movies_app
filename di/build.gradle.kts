@@ -38,16 +38,16 @@ android {
 }
 
 dependencies {
-    implementation(Libs.KOTLIN_STD_VERSION)
     koin()
     room()
     retrofit()
-    implementation(Libs.HTTP_INTERCEPTOR)
+    gson()
+    okHttpInterceptor()
     coroutines()
     lifecycle()
-    implementation(project(path = ":navigation"))
-    implementation(project(path = ":featurepopularmovies"))
-    implementation(project(path = ":featuresimilarmovies"))
-    implementation(project(path = ":data"))
-    implementation(project(path = ":core"))
+    implementation(project(path = Modules.NAVIGATION))
+    implementation(project(path = Modules.FEATURE_POPULAR_MOVIES))
+    implementation(project(path = Modules.FEATURE_SIMILAR_MOVIES))
+    implementation(project(path = Modules.DATA))
+    implementation(project(path = Modules.CORE))
 }

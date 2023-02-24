@@ -4,6 +4,7 @@ buildscript {
         google()
         mavenCentral()
     }
+
     dependencies {
         classpath(ClasspathDependenciesLibs.ANDROID_GRADLE_PLUGIN)
         classpath(ClasspathDependenciesLibs.KOTLIN_GRADLE_PLUGIN)
