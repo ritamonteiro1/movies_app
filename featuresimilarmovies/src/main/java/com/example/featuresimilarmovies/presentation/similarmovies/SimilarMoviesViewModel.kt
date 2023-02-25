@@ -1,35 +1,40 @@
 package com.example.featuresimilarmovies.presentation.similarmovies
 
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.core.utils.Result
+import com.example.coreui.viewmodel.BaseViewModel
+import com.example.coreui.viewmodel.EffectUi
+import com.example.coreui.viewmodel.EventUi
+import com.example.coreui.viewmodel.StateUi
 import com.example.featuresimilarmovies.domain.models.SimilarMovieList
 import com.example.featuresimilarmovies.domain.repository.SimilarMoviesRepository
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 
 class SimilarMoviesViewModel(
     private val repository: SimilarMoviesRepository,
     private val dispatcher: CoroutineContext = Dispatchers.Main
-) : ViewModel() {
+) : BaseViewModel<SimilarMoviesContract.Event, SimilarMoviesContract.State, SimilarMoviesContract.Effect>() {
+    override fun createInitialState(): SimilarMoviesContract.State {
+        return SimilarMoviesContract.State.Loading
+    }
 
-    private val _state =
-        MutableStateFlow<SimilarMoviesContract.State>(SimilarMoviesContract.State.Loading)
-    val state: StateFlow<SimilarMoviesContract.State> = _state
+    override fun handleEvent(event: SimilarMoviesContract.Event) {
+        when (event) {
+            is SimilarMoviesContract.Event.GetSimilarMovies -> getSimilarMovies(event.movieId)
+        }
+    }
 
-    fun getSimilarMovies(movieId: Int) {
+    private fun getSimilarMovies(movieId: Int) {
+        setState(SimilarMoviesContract.State.Loading)
         viewModelScope.launch(dispatcher) {
-            viewModelScope.launch(dispatcher) {
-                when (val result = repository.getSimilarMovies(movieId)) {
-                    is Result.Success -> {
-                        _state.value = SimilarMoviesContract.State.Success(result.data)
-                    }
-                    is Result.Error -> {
-                        _state.value = SimilarMoviesContract.State.Error(result.error)
-                    }
+            when (val result = repository.getSimilarMovies(movieId)) {
+                is Result.Success -> {
+                    setState(SimilarMoviesContract.State.Success(result.data))
+                }
+                is Result.Error -> {
+                    setState(SimilarMoviesContract.State.Error(result.error))
                 }
             }
         }
@@ -37,9 +42,15 @@ class SimilarMoviesViewModel(
 }
 
 object SimilarMoviesContract {
-    sealed interface State {
+    sealed interface State : StateUi {
         object Loading : State
         data class Success(val movies: SimilarMovieList) : State
         data class Error(val error: Throwable) : State
     }
+
+    sealed interface Event : EventUi {
+        data class GetSimilarMovies(val movieId: Int) : Event
+    }
+
+    sealed interface Effect : EffectUi
 }
