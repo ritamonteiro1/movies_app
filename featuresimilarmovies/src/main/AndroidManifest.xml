@@ -4,7 +4,7 @@
 
     <application>
         <activity
-            android:name=".SimilarMoviesActivity"
+            android:name=".presentation.SimilarMoviesActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

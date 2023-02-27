@@ -7,4 +7,5 @@ object Modules {
     const val FEATURE_POPULAR_MOVIES = ":featurepopularmovies"
     const val FEATURE_SIMILAR_MOVIES = ":featuresimilarmovies"
     const val NAVIGATION = ":navigation"
+    const val CORE_UI = ":coreui"
 }

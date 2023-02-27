@@ -24,5 +24,6 @@ include(
     ":navigation",
     ":featurepopularmovies",
     ":featuresimilarmovies",
-    ":designsystem"
+    ":designsystem",
+    ":coreui"
 )
