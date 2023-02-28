@@ -37,6 +37,10 @@ android {
             jvmTarget = Android.JVM_TARGET
         }
     }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.3.2"
+    }
 }
 
 dependencies {

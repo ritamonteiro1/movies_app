@@ -48,6 +48,7 @@ dependencies {
     okHttpInterceptor()
     room()
     paging()
+    gson()
     jUnit()
     espresso()
     mockK()

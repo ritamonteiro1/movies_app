@@ -3,6 +3,7 @@ package com.example.data.local.datasource
 import androidx.room.*
 import com.example.data.local.models.MovieDetailCache
 
+@Dao
 interface PopularMoviesCacheDataSource {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun saveMovie(movie: MovieDetailCache)
