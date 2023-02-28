@@ -42,6 +42,7 @@ android {
 }
 
 dependencies {
+    androidx()
     koin()
     room()
     retrofit()

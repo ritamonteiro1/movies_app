@@ -13,7 +13,7 @@ object Versions {
     const val CORE_KTX = "1.9.0"
     const val MATERIAL_DESIGN = "1.4.0"
     const val CONSTRAINT_LAYOUT = "2.1.4"
-    const val KOIN = "3.3.2"
+    const val KOIN = "2.2.3"
     const val ROOM = "2.5.0"
     const val RETROFIT = "2.9.0"
     const val HTTP_INTERCEPTOR = "4.9.1"
@@ -34,4 +34,5 @@ object Versions {
     //Compose Library
     const val COMPOSE = "1.1.1"
     const val COIL_COMPOSE_VERSION = "2.1.0"
+    const val PAGING_COMPOSE = "1.0.0-alpha18"
 }

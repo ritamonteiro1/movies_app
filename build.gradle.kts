@@ -12,6 +12,13 @@ buildscript {
     }
 }
 
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
 plugins {
     id(BuildPlugins.DETEKT).version(Versions.DETEKT)
 }

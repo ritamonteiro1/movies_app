@@ -73,7 +73,7 @@ fun DependencyHandlerScope.navigation() {
 fun DependencyHandlerScope.paging() {
     "implementation"("androidx.paging:paging-runtime:${Versions.PAGING}")
     "implementation"("androidx.paging:paging-runtime:${Versions.PAGING}")
-    "implementation"("androidx.paging:paging-compose:${Versions.COMPOSE}")
+    "implementation"("androidx.paging:paging-compose:${Versions.PAGING_COMPOSE}")
 }
 
 fun DependencyHandlerScope.lottie() {
