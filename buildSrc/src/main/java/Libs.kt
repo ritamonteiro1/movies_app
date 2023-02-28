@@ -12,8 +12,8 @@ object ClasspathDependenciesLibs {
 fun DependencyHandlerScope.androidx() {
     "implementation"("androidx.appcompat:appcompat:${Versions.APP_COMPAT}")
     "implementation"("androidx.core:core-ktx:${Versions.CORE_KTX}")
-    "androidx.constraintlayout:constraintlayout:${Versions.CONSTRAINT_LAYOUT}"
-    "com.google.android.material:material:${Versions.MATERIAL_DESIGN}"
+    "implementation"("androidx.constraintlayout:constraintlayout:${Versions.CONSTRAINT_LAYOUT}")
+    "implementation"("com.google.android.material:material:${Versions.MATERIAL_DESIGN}")
 }
 
 fun DependencyHandlerScope.retrofit() {
@@ -21,7 +21,7 @@ fun DependencyHandlerScope.retrofit() {
 }
 
 fun DependencyHandlerScope.okHttpInterceptor() {
-    "com.squareup.okhttp3:logging-interceptor:${Versions.HTTP_INTERCEPTOR}"
+    "implementation"("com.squareup.okhttp3:logging-interceptor:${Versions.HTTP_INTERCEPTOR}")
 }
 
 fun DependencyHandlerScope.gson() {
@@ -57,8 +57,8 @@ fun DependencyHandlerScope.compose() {
     "implementation"("androidx.compose.foundation:foundation:${Versions.COMPOSE}")
     "implementation"("androidx.compose.ui:ui-tooling-preview:${Versions.COMPOSE}")
     "implementation"("androidx.compose.ui:ui:${Versions.COMPOSE}")
-    "com.google.accompanist:accompanist-systemuicontroller:${Versions.SYSTEM_UI_CONTROLLER_COMPOSE}"
-    "io.coil-kt:coil-compose:${Versions.COIL_COMPOSE_VERSION}"
+    "implementation"("com.google.accompanist:accompanist-systemuicontroller:${Versions.SYSTEM_UI_CONTROLLER_COMPOSE}")
+    "implementation"("io.coil-kt:coil-compose:${Versions.COIL_COMPOSE_VERSION}")
 }
 
 fun DependencyHandlerScope.lifecycle() {
@@ -77,22 +77,22 @@ fun DependencyHandlerScope.paging() {
 }
 
 fun DependencyHandlerScope.lottie() {
-    "com.airbnb.android:lottie:${Versions.LOTTIE}"
+    "implementation"("com.airbnb.android:lottie:${Versions.LOTTIE}")
 }
 
 fun DependencyHandlerScope.glide() {
-    "com.github.bumptech.glide:glide:${Versions.GLIDE}"
+    "implementation"("com.github.bumptech.glide:glide:${Versions.GLIDE}")
 }
 
 fun DependencyHandlerScope.jUnit() {
-    "junit:junit:${Versions.JUNIT4_VERSION}"
-    "androidx.test.ext:junit:${Versions.JUNIT_EXT_VERSION}"
+    "testImplementation"("junit:junit:${Versions.JUNIT4_VERSION}")
+    "androidTestImplementation"("androidx.test.ext:junit:${Versions.JUNIT_EXT_VERSION}")
 }
 
 fun DependencyHandlerScope.espresso() {
-    "androidx.test.espresso:espresso-core:${Versions.ESPRESSO_VERSION}"
+    "androidTestImplementation"("androidx.test.espresso:espresso-core:${Versions.ESPRESSO_VERSION}")
 }
 
 fun DependencyHandlerScope.mockK() {
-    "io.mockk:mockk:${Versions.MOCKK_VERSION}"
+    "testImplementation"("io.mockk:mockk:${Versions.MOCKK_VERSION}")
 }
