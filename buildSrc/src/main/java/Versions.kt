@@ -14,7 +14,7 @@ object Versions {
     const val MATERIAL_DESIGN = "1.4.0"
     const val CONSTRAINT_LAYOUT = "2.1.4"
     const val KOIN = "2.2.3"
-    const val ROOM = "2.5.0"
+    const val ROOM = "2.4.3"
     const val RETROFIT = "2.9.0"
     const val HTTP_INTERCEPTOR = "4.9.1"
     const val COROUTINES = "1.6.4"

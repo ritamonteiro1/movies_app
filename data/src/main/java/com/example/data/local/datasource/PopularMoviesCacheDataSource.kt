@@ -14,8 +14,3 @@ interface PopularMoviesCacheDataSource {
     @Query("SELECT * FROM movieDetailCache")
     suspend fun getFavoriteMovies(): List<MovieDetailCache>
 }
-
-@Database(entities = [MovieDetailCache::class], version = 1)
-abstract class AppDataBase : RoomDatabase() {
-    abstract fun movieDetailsCache(): MovieDetailCache
-}
