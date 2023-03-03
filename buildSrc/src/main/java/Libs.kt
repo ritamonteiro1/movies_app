@@ -35,11 +35,7 @@ fun DependencyHandlerScope.coroutines() {
 }
 
 fun DependencyHandlerScope.koin() {
-    "implementation"("io.insert-koin:koin-core:${Versions.KOIN}")
     "implementation"("io.insert-koin:koin-android:${Versions.KOIN}")
-    "implementation"("io.insert-koin:koin-androidx-scope:${Versions.KOIN}")
-    "implementation"("io.insert-koin:koin-androidx-viewmodel:${Versions.KOIN}")
-    "implementation"("io.insert-koin:koin-androidx-fragment:${Versions.KOIN}")
 }
 
 fun DependencyHandlerScope.room() {
@@ -62,6 +58,7 @@ fun DependencyHandlerScope.compose() {
 }
 
 fun DependencyHandlerScope.lifecycle() {
+    "implementation"("androidx.lifecycle:lifecycle-runtime-ktx:${Versions.LIFECYCLE}")
     "implementation"("androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.LIFECYCLE}")
 }
 
