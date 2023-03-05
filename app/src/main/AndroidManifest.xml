@@ -22,11 +22,9 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name="com.example.featurepopularmovies.presentation.PopularMoviesActivity" />
+        <activity android:name="com.example.featurepopularmovies.presentation.PopularMoviesActivity" />
 
-        <activity
-            android:name="com.example.featuresimilarmovies.presentation.SimilarMoviesActivity" />
+        <activity android:name="com.example.featuresimilarmovies.presentation.SimilarMoviesActivity" />
 
     </application>
 

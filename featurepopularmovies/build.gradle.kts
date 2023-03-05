@@ -49,7 +49,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.2"
+        kotlinCompilerExtensionVersion = Versions.KOTLIN_COMPILER_EXTENSION
     }
 
     packagingOptions {

@@ -3,6 +3,8 @@ buildscript {
     repositories {
         google()
         mavenCentral()
+        mavenLocal()
+        maven { setUrl("https://jitpack.io") }
     }
 
     dependencies {
@@ -16,6 +18,8 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+        mavenLocal()
+        maven { setUrl("https://jitpack.io") }
     }
 }
 
