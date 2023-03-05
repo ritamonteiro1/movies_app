@@ -1,2 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <color name="primary">#355070</color>
+    <color name="secondary">#6D597A</color>
+    <color name="tertiary">#B56576</color>
+    <color name="quaternary">#E56B6F</color>
+    <color name="quinary">#EAAC8B</color>
+    <color name="background">#FDFCFF</color>
+    <color name="onBackground">#1A1C1E</color>
+    <color name="error">#BA1A1A</color>
+    <color name="onError">#FFFFFF</color>
+    <color name="surface">#FDFCFF</color>
+    <color name="onSurface">#1A1C1E</color>
+    <color name="onPrimary">#FFFFFF</color>
+    <color name="onSecondary">#ffffff</color>
+    <color name="onTertiary">#ffffff</color>
+    <color name="onQuaternary">#3f001a</color>
+    <color name="onQuinary">#3c0800</color>
+</resources>
