@@ -26,6 +26,10 @@ android {
         }
     }
 
+    buildFeatures {
+        viewBinding = true
+    }
+
     compileOptions {
         sourceCompatibility = AndroidCompileOptions.SOURCE_COMPATIBILITY
         targetCompatibility = AndroidCompileOptions.TARGET_COMPATIBILITY
