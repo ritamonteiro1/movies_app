@@ -24,6 +24,7 @@ object Versions {
     const val GLIDE = "4.14.2"
     const val PAGING = "3.0.0"
     const val LOTTIE = "3.4.0"
+    const val KOTLIN_COMPILER_EXTENSION = "1.4.2"
 
     //Test Libraries Version
     const val JUNIT4_VERSION = "4.13.2"

@@ -26,6 +26,9 @@ android {
             )
         }
     }
+    buildFeatures {
+        compose = true
+    }
 
     compileOptions {
         sourceCompatibility = AndroidCompileOptions.SOURCE_COMPATIBILITY
@@ -39,7 +42,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.2"
+        kotlinCompilerExtensionVersion = Versions.KOTLIN_COMPILER_EXTENSION
     }
 }
 

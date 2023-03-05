@@ -30,6 +30,11 @@ android {
         }
     }
 
+    buildFeatures {
+        viewBinding = true
+        compose = true
+    }
+
     compileOptions {
         sourceCompatibility = AndroidCompileOptions.SOURCE_COMPATIBILITY
         targetCompatibility = AndroidCompileOptions.TARGET_COMPATIBILITY
@@ -40,10 +45,15 @@ android {
             jvmTarget = Android.JVM_TARGET
         }
     }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = Versions.KOTLIN_COMPILER_EXTENSION
+    }
 }
 
 dependencies {
     androidx()
+    compose()
     lottie()
     koin()
     implementation(project(path = Modules.DI))
