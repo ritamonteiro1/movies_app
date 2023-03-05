@@ -1,10 +1,10 @@
-package com.example.app
+package com.example.app.splash
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import androidx.activity.ComponentActivity
 import com.example.moviesapp.R
 
-class SplashActivity : AppCompatActivity() {
+class SplashActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)

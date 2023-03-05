@@ -2,7 +2,7 @@ object Versions {
 
     //ClassPathDependencies
     const val ANDROID_GRADLE_PLUGIN = "7.4.0"
-    const val KOTLIN = "1.7.20"
+    const val KOTLIN = "1.8.10"
     const val NAV_SAFE_ARGS = "2.4.2"
 
     //Plugins
@@ -13,17 +13,18 @@ object Versions {
     const val CORE_KTX = "1.9.0"
     const val MATERIAL_DESIGN = "1.4.0"
     const val CONSTRAINT_LAYOUT = "2.1.4"
-    const val KOIN = "3.3.2"
-    const val ROOM = "2.5.0"
+    const val KOIN = "3.1.2"
+    const val ROOM = "2.4.3"
     const val RETROFIT = "2.9.0"
     const val HTTP_INTERCEPTOR = "4.9.1"
     const val COROUTINES = "1.6.4"
-    const val LIFECYCLE = "2.2.0"
+    const val LIFECYCLE = "2.5.1"
     const val NAVIGATION_FRAGMENT = "2.5.3"
     const val SYSTEM_UI_CONTROLLER_COMPOSE = "0.17.0"
     const val GLIDE = "4.14.2"
     const val PAGING = "3.0.0"
     const val LOTTIE = "3.4.0"
+    const val KOTLIN_COMPILER_EXTENSION = "1.4.2"
 
     //Test Libraries Version
     const val JUNIT4_VERSION = "4.13.2"
@@ -34,4 +35,5 @@ object Versions {
     //Compose Library
     const val COMPOSE = "1.1.1"
     const val COIL_COMPOSE_VERSION = "2.1.0"
+    const val PAGING_COMPOSE = "1.0.0-alpha18"
 }

@@ -26,6 +26,9 @@ android {
             )
         }
     }
+    buildFeatures {
+        compose = true
+    }
 
     compileOptions {
         sourceCompatibility = AndroidCompileOptions.SOURCE_COMPATIBILITY
@@ -36,6 +39,10 @@ android {
         kotlinOptions {
             jvmTarget = Android.JVM_TARGET
         }
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = Versions.KOTLIN_COMPILER_EXTENSION
     }
 }
 

@@ -1,7 +1,7 @@
 package com.example.di
 
 import androidx.room.Room
-import com.example.data.local.datasource.AppDataBase
+import com.example.data.local.AppDataBase
 import com.example.data.remote.api.PopularMoviesService
 import com.example.data.remote.api.SimilarMoviesService
 import com.example.data.remote.datasource.PopularMoviesRemoteDataSource

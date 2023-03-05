@@ -42,6 +42,7 @@ android {
 }
 
 dependencies {
+    androidx()
     koin()
     room()
     retrofit()
@@ -54,4 +55,5 @@ dependencies {
     implementation(project(path = Modules.FEATURE_SIMILAR_MOVIES))
     implementation(project(path = Modules.DATA))
     implementation(project(path = Modules.CORE))
+    implementation(project(path = Modules.CORE_UI))
 }

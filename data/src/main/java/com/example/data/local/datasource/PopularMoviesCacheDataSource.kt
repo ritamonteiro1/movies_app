@@ -3,6 +3,7 @@ package com.example.data.local.datasource
 import androidx.room.*
 import com.example.data.local.models.MovieDetailCache
 
+@Dao
 interface PopularMoviesCacheDataSource {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun saveMovie(movie: MovieDetailCache)
@@ -12,9 +13,4 @@ interface PopularMoviesCacheDataSource {
 
     @Query("SELECT * FROM movieDetailCache")
     suspend fun getFavoriteMovies(): List<MovieDetailCache>
-}
-
-@Database(entities = [MovieDetailCache::class], version = 1)
-abstract class AppDataBase : RoomDatabase() {
-    abstract fun movieDetailsCache(): MovieDetailCache
 }
