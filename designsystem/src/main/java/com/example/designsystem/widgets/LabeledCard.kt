@@ -23,11 +23,7 @@ import com.example.designsystem.theme.apptheme.MoviesTheme
 @Composable
 fun LabeledCard(
     modifier: Modifier = Modifier,
-    title: String,
-    overview: String,
-    image: String,
-    releaseDate: String,
-    voteAverage: String,
+    cardItems: CardItem,
     contentDescriptionImage: String = "",
     onClick: () -> Unit,
 ) {
@@ -55,20 +51,17 @@ fun LabeledCard(
                 modifier = Modifier
                     .width(100.dp)
                     .height(200.dp),
-                model = image,
+                model = cardItems.image,
                 contentDescription = contentDescriptionImage,
                 contentScale = ContentScale.Fit,
                 error = painterResource(id = R.drawable.ic_error),
             )
             Spacer(modifier = Modifier.width(8.dp))
             Column {
-                RegularRow(title = "Title:", subtitle = title)
-                Spacer(modifier = Modifier.width(4.dp))
-                RegularRow(title = "Overview:", subtitle = overview)
-                Spacer(modifier = Modifier.width(4.dp))
-                RegularRow(title = "Date:", subtitle = releaseDate)
-                Spacer(modifier = Modifier.width(4.dp))
-                RegularRow(title = "Vote:", subtitle = voteAverage)
+                cardItems.texts.forEach {
+                    RegularRow(title = it.title, subtitle = it.subtitle)
+                    Spacer(modifier = Modifier.height(4.dp))
+                }
             }
         }
     }
@@ -81,12 +74,38 @@ fun LabeledCard(
 private fun LabeledCardPreview() {
     MoviesAppTheme {
         LabeledCard(
-            title = "Title",
-            overview = "Overview",
-            image = "",
-            releaseDate = "00/00/0000",
-            voteAverage = "10",
+            cardItems = CardItem(
+                image = "",
+                texts = listOf(
+                    CardText(
+                        title = "Title",
+                        subtitle = "Subtitle"
+                    ),
+                    CardText(
+                        title = "Title",
+                        subtitle = "Subtitle"
+                    ),
+                    CardText(
+                        title = "Title",
+                        subtitle = "Subtitle"
+                    ),
+                    CardText(
+                        title = "Title",
+                        subtitle = "Subtitle"
+                    ),
+                )
+            ),
             onClick = {},
         )
     }
 }
+
+data class CardItem(
+    val image: String,
+    val texts: List<CardText>,
+)
+
+data class CardText(
+    val title: String,
+    val subtitle: String,
+)
