@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat.startActivity
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import com.example.featurepopularmovies.R
@@ -25,9 +24,7 @@ class PopularMoviesActivity : AppCompatActivity() {
 
     companion object {
         fun launch(context: Context) {
-//            context.startActivity(Intent(context, PopularMoviesActivity::class.java))
-            val intent = Intent(context, PopularMoviesActivity::class.java)
-            startActivity(context, intent, null)
+            context.startActivity(Intent(context, PopularMoviesActivity::class.java))
         }
     }
 }
