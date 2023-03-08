@@ -1,4 +1,5 @@
 package com.example.featurepopularmovies.presentation.moviedetails
 
-class PopularMovieDetailFragment {
-}
+import androidx.fragment.app.Fragment
+
+class PopularMovieDetailFragment : Fragment()

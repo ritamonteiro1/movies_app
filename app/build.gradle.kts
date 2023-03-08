@@ -55,8 +55,10 @@ dependencies {
     androidx()
     compose()
     lottie()
+    coroutines()
     koin()
     implementation(project(path = Modules.DI))
+    implementation(project(path = Modules.NAVIGATION))
     implementation(project(path = Modules.FEATURE_POPULAR_MOVIES))
     implementation(project(path = Modules.FEATURE_SIMILAR_MOVIES))
 }

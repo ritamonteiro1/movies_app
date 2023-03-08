@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/popularMoviesFragment">
+    <fragment
+        android:id="@+id/popularMoviesFragment"
+        android:name="com.example.featurepopularmovies.presentation.popularmovies.PopularMoviesFragment"
+        android:label="PopularMoviesFragment">
+        <action
+            android:id="@+id/action_popularMoviesFragment_to_popularMovieDetailFragment"
+            app:destination="@id/popularMovieDetailFragment" />
+        <action
+            android:id="@+id/action_popularMoviesFragment_to_favoriteMoviesFragment"
+            app:destination="@id/favoriteMoviesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/popularMovieDetailFragment"
+        android:name="com.example.featurepopularmovies.presentation.moviedetails.PopularMovieDetailFragment"
+        android:label="PopularMovieDetailFragment">
+        <argument
+            android:name="movieId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoriteMoviesFragment"
+        android:name="com.example.featurepopularmovies.presentation.favoritemovies.FavoriteMoviesFragment"
+        android:label="FavoriteMoviesFragment" />
+</navigation>

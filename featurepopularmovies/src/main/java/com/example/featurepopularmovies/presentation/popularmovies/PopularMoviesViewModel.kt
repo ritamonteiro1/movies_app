@@ -22,7 +22,8 @@ class PopularMoviesViewModel(
     override fun handleEvent(event: PopularMoviesContract.Event) {
         when (event) {
             is PopularMoviesContract.Event.GetPopularMovies -> {
-                getPopularMovies()
+                val popularMoviesFlow = getPopularMovies()
+                setState(PopularMoviesContract.State.Success(popularMoviesFlow))
             }
         }
     }
@@ -42,5 +43,6 @@ object PopularMoviesContract {
 
     sealed interface State : StateUi {
         object Initial : State
+        data class Success(val popularMovies: Flow<PagingData<PopularMovie>>) : State
     }
 }
