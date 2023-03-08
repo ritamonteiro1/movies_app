@@ -9,7 +9,6 @@ import androidx.compose.material.Typography
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.compositionLocalOf
-import com.example.designsystem.theme.apptheme.MoviesTheme.sizes
 import com.example.designsystem.theme.colors.MoviesAppColors
 import com.example.designsystem.theme.sizes.MoviesAppSizes
 import com.example.designsystem.theme.typography.MoviesAppTypography
@@ -91,18 +90,18 @@ private fun defaultTypographyBySystem(): MoviesAppTypography {
  */
 val MoviesAppColors.material: Colors
     get() = Colors(
-        primary = colors.primary,
-        primaryVariant = colors.onPrimary,
-        secondary = colors.secondary,
-        secondaryVariant = colors.onSecondary,
-        background = colors.background,
-        surface = colors.surface,
-        error = colors.error,
-        onPrimary = colors.onPrimary,
-        onSecondary = colors.onSecondary,
-        onBackground = colors.onBackground,
-        onSurface = colors.onSurface,
-        onError = colors.onError,
+        primary = moviesColors.primary,
+        primaryVariant = moviesColors.onPrimary,
+        secondary = moviesColors.secondary,
+        secondaryVariant = moviesColors.onSecondary,
+        background = moviesColors.background,
+        surface = moviesColors.surface,
+        error = moviesColors.error,
+        onPrimary = moviesColors.onPrimary,
+        onSecondary = moviesColors.onSecondary,
+        onBackground = moviesColors.onBackground,
+        onSurface = moviesColors.onSurface,
+        onError = moviesColors.onError,
         isLight = isLight
     )
 
