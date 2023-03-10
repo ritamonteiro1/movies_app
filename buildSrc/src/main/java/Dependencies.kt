@@ -7,6 +7,7 @@ object BuildPlugins {
     const val ANDROID_LIBRARY = "com.android.library"
     const val KOTLIN_KAPT = "kotlin-kapt"
     const val KOTLIN = "kotlin"
+    const val SAFE_ARGS = "androidx.navigation.safeargs.kotlin"
     const val DETEKT = "io.gitlab.arturbosch.detekt"
 }
 

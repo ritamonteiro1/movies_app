@@ -3,6 +3,7 @@ plugins {
     id(BuildPlugins.KOTLIN_ANDROID)
     id(BuildPlugins.KOTLIN_PARCELIZE)
     id(BuildPlugins.KOTLIN_KAPT)
+    id(BuildPlugins.SAFE_ARGS)
 }
 
 apply {
