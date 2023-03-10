@@ -25,4 +25,13 @@ class SimilarMoviesFragment :
     ): View? {
         return super.onCreateView(inflater, container, savedInstanceState)
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val movieId = activity?.intent?.getIntExtra("movieId", DEFAULT_MOVIE_ID)
+    }
+
+    private companion object {
+        const val DEFAULT_MOVIE_ID = -1
+    }
 }
