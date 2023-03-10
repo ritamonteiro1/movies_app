@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="title_movie">Title:</string>
+    <string name="release_movie">Release:</string>
+    <string name="vote_movie">Vote average:</string>
+    <string name="overview_movie">Overview:</string>
 </resources>
