@@ -11,8 +11,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import androidx.paging.PagingData
 import androidx.paging.compose.LazyPagingItems
@@ -23,6 +25,7 @@ import com.example.designsystem.theme.apptheme.MoviesTheme
 import com.example.designsystem.widgets.CardItem
 import com.example.designsystem.widgets.CardText
 import com.example.designsystem.widgets.LabeledCard
+import com.example.featurepopularmovies.R
 import com.example.featurepopularmovies.domain.models.PopularMovie
 import kotlinx.coroutines.flow.Flow
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -80,40 +83,46 @@ class PopularMoviesFragment : Fragment() {
             }
             is LoadState.NotLoading -> {
                 LazyColumn {
-                    itemsIndexed(lazyItems) { index, item ->
+                    itemsIndexed(lazyItems) { _, item ->
                         if (item != null) {
                             LabeledCard(
                                 cardItems = CardItem(
                                     image = item.posterPath.toMoviePosterUrl(),
                                     texts = listOf(
                                         CardText(
-                                            title = "Title",
+                                            title = stringResource(id = R.string.title_movie),
                                             subtitle = item.title
                                         ),
                                         CardText(
-                                            title = "Subtitle",
+                                            title = stringResource(id = R.string.release_movie),
                                             subtitle = item.releaseDate
                                         ),
                                         CardText(
-                                            title = "Vote Average",
+                                            title = stringResource(id = R.string.vote_movie),
                                             subtitle = item.voteAverage.toString()
                                         ),
                                         CardText(
-                                            title = "Overview",
+                                            title = stringResource(id = R.string.overview_movie),
                                             subtitle = item.overview
                                         ),
                                     )
                                 )
                             ) {
-
+                                navigateToPopularMovieDetailsFragment(item)
                             }
                         }
                     }
                 }
             }
         }
+    }
 
-
+    private fun navigateToPopularMovieDetailsFragment(item: PopularMovie) {
+        val action =
+            PopularMoviesFragmentDirections.actionPopularMoviesFragmentToPopularMovieDetailFragment(
+                movieId = item.id
+            )
+        findNavController().navigate(action)
     }
 
     @Preview
