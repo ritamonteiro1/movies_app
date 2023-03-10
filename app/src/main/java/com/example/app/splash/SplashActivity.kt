@@ -2,7 +2,7 @@ package com.example.app.splash
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.coroutineScope
 import com.example.moviesapp.R
 import com.example.navigation.PopularMoviesBoundary
 import kotlinx.coroutines.delay
@@ -14,7 +14,7 @@ class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
-        lifecycleScope.launchWhenCreated {
+        lifecycle.coroutineScope.launchWhenCreated {
             delay(ANIMATION_DURATION)
             boundary.navigateToFeaturePopularMovies(this@SplashActivity)
             finish()

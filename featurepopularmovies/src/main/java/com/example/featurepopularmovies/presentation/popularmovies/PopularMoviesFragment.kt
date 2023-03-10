@@ -1,5 +1,6 @@
 package com.example.featurepopularmovies.presentation.popularmovies
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -69,7 +70,6 @@ class PopularMoviesFragment : Fragment() {
         TopAppBar(backgroundColor = MoviesTheme.colors.moviesColors.primary) {}
     }
 
-
     @Composable
     private fun BodyContent(items: Flow<PagingData<PopularMovie>>) {
         val lazyItems: LazyPagingItems<PopularMovie> = items.collectAsLazyPagingItems()
@@ -125,6 +125,8 @@ class PopularMoviesFragment : Fragment() {
         findNavController().navigate(action)
     }
 
+    @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
+    @Preview(showBackground = true)
     @Preview
     @Composable
     private fun PreviewScreenContent() {
