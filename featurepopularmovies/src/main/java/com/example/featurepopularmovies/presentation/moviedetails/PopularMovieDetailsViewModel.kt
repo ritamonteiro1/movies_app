@@ -21,45 +21,41 @@ class PopularMovieDetailsViewModel(
     }
 
     override fun handleEvent(event: PopularMovieDetailsContract.Event) {
-        when (event) {
-            is PopularMovieDetailsContract.Event.GetMovieDetails -> {
-                getMovieDetails(event.movieId)
-            }
-            is PopularMovieDetailsContract.Event.DeleteFavoriteMovie -> {
-                deleteFavoriteMovie(event.movieId)
-            }
-            is PopularMovieDetailsContract.Event.SaveFavoriteMovie -> {
-                saveFavoriteMovie(event.movie)
+        viewModelScope.launch(dispatcher) {
+            when (event) {
+                is PopularMovieDetailsContract.Event.GetMovieDetails -> {
+                    getMovieDetails(event.movieId)
+                }
+                is PopularMovieDetailsContract.Event.DeleteFavoriteMovie -> {
+                    deleteFavoriteMovie(event.movieId)
+                }
+                is PopularMovieDetailsContract.Event.SaveFavoriteMovie -> {
+                    saveFavoriteMovie(event.movie)
+                }
             }
         }
     }
 
-    private fun getMovieDetails(movieId: Int) {
+    private suspend fun getMovieDetails(movieId: Int) {
         setState(PopularMovieDetailsContract.State.Loading)
-        viewModelScope.launch(dispatcher) {
-            when (val result = repository.getPopularMovieDetails(movieId)) {
-                is Result.Success -> {
-                    setState(PopularMovieDetailsContract.State.Success(result.data))
-                }
-                is Result.Error -> {
-                    setState(PopularMovieDetailsContract.State.Error(result.error))
-                }
+        when (val result = repository.getPopularMovieDetails(movieId)) {
+            is Result.Success -> {
+                setState(PopularMovieDetailsContract.State.Success(result.data))
+            }
+            is Result.Error -> {
+                setState(PopularMovieDetailsContract.State.Error(result.error))
             }
         }
     }
 
-    private fun saveFavoriteMovie(movie: PopularMovieDetail) {
-        viewModelScope.launch(dispatcher) {
-            repository.saveFavoriteMovie(movie)
-            setEffect(PopularMovieDetailsContract.Effect.FavoriteMovieSaved)
-        }
+    private suspend fun saveFavoriteMovie(movie: PopularMovieDetail) {
+        repository.saveFavoriteMovie(movie)
+        setEffect(PopularMovieDetailsContract.Effect.FavoriteMovieSaved)
     }
 
-    private fun deleteFavoriteMovie(movieId: Int) {
-        viewModelScope.launch(dispatcher) {
-            repository.deleteFavoriteMovie(movieId)
-            setEffect(PopularMovieDetailsContract.Effect.FavoriteMovieDeleted)
-        }
+    private suspend fun deleteFavoriteMovie(movieId: Int) {
+        repository.deleteFavoriteMovie(movieId)
+        setEffect(PopularMovieDetailsContract.Effect.FavoriteMovieDeleted)
     }
 }
 

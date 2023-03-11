@@ -21,23 +21,22 @@ class FavoriteMoviesViewModel(
     }
 
     override fun handleEvent(event: FavoriteMoviesContract.Event) {
-        when (event) {
-            is FavoriteMoviesContract.Event.GetFavoriteMovies -> getFavoriteMovies()
+        viewModelScope.launch(dispatcher) {
+            when (event) {
+                is FavoriteMoviesContract.Event.GetFavoriteMovies -> getFavoriteMovies()
+            }
         }
     }
 
-    private fun getFavoriteMovies() {
+    private suspend fun getFavoriteMovies() {
         setState(FavoriteMoviesContract.State.Loading)
         try {
-            viewModelScope.launch(dispatcher) {
-                val movies = repository.getFavoriteMovies()
-                setState(FavoriteMoviesContract.State.Success(movies))
-            }
+            val movies = repository.getFavoriteMovies()
+            setState(FavoriteMoviesContract.State.Success(movies))
         } catch (e: Exception) {
             setState(FavoriteMoviesContract.State.Error(e))
         }
     }
-
 }
 
 object FavoriteMoviesContract {
