@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.coroutineScope
 import androidx.navigation.fragment.navArgs
 import com.example.designsystem.theme.apptheme.MoviesAppTheme
-import com.example.featurepopularmovies.presentation.favoritemovies.FavoriteMoviesContract
 import com.example.navigation.SimilarMoviesBoundary
 import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
@@ -41,10 +40,13 @@ class PopularMovieDetailFragment : Fragment() {
 
     private fun setupObservers() {
         lifecycle.coroutineScope.launch {
-            viewModel.effect.collect() { effect ->
+            viewModel.effect.collect { effect ->
                 when (effect) {
                     is PopularMovieDetailsContract.Effect.FavoriteMovieDeleted -> TODO()
                     is PopularMovieDetailsContract.Effect.FavoriteMovieSaved -> TODO()
+                    is PopularMovieDetailsContract.Effect.NavigateToSimilarMoviesScreen -> {
+                        boundary.navigateToFeatureSimilarMovies(requireContext(), effect.movieId)
+                    }
                 }
             }
         }

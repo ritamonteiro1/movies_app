@@ -1,10 +1,13 @@
 package com.example.featurepopularmovies.presentation.favoritemovies
 
 import android.content.res.Configuration
-import androidx.compose.material.Scaffold
+import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.designsystem.theme.apptheme.MoviesAppTheme
+import com.example.designsystem.theme.apptheme.MoviesTheme
 
 @Composable
 internal fun FavoriteMoviesScreen(viewModel: FavoriteMoviesViewModel) {
@@ -20,7 +23,18 @@ private fun ScreenContent() {
 
 @Composable
 private fun AppBarContent() {
-
+    TopAppBar(
+        title = { Text(text = "Favorite Screen") },
+        backgroundColor = MoviesTheme.colors.moviesColors.primary,
+        navigationIcon = {
+            IconButton(onClick = {  }) {
+                Icon(
+                    imageVector = Icons.Default.ArrowBack,
+                    contentDescription = ""
+                )
+            }
+        }
+    )
 }
 
 @Composable
