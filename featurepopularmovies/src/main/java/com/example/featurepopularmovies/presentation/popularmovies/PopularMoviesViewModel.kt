@@ -10,6 +10,7 @@ import com.example.coreui.viewmodel.StateUi
 import com.example.featurepopularmovies.domain.models.PopularMovie
 import com.example.featurepopularmovies.domain.repository.PopularMoviesRepository
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.launch
 
 class PopularMoviesViewModel(
     private val repository: PopularMoviesRepository,
@@ -20,10 +21,19 @@ class PopularMoviesViewModel(
     }
 
     override fun handleEvent(event: PopularMoviesContract.Event) {
-        when (event) {
-            is PopularMoviesContract.Event.GetPopularMovies -> {
-                val popularMoviesFlow = getPopularMovies()
-                setState(PopularMoviesContract.State.Success(popularMoviesFlow))
+        viewModelScope.launch {
+            when (event) {
+                is PopularMoviesContract.Event.GetPopularMovies -> {
+                    val popularMoviesFlow = getPopularMovies()
+                    setState(PopularMoviesContract.State.Success(popularMoviesFlow))
+                }
+                is PopularMoviesContract.Event.OnClickMovieCard -> {
+                    setEffect(
+                        PopularMoviesContract.Effect.NavigateToPopularMovieDetailsFragment(
+                            event.movieId
+                        )
+                    )
+                }
             }
         }
     }
@@ -37,9 +47,12 @@ class PopularMoviesViewModel(
 object PopularMoviesContract {
     sealed interface Event : EventUi {
         object GetPopularMovies : Event
+        data class OnClickMovieCard(val movieId: Int) : Event
     }
 
-    sealed interface Effect : EffectUi
+    sealed interface Effect : EffectUi {
+        data class NavigateToPopularMovieDetailsFragment(val movieId: Int) : Effect
+    }
 
     sealed interface State : StateUi {
         object Initial : State
