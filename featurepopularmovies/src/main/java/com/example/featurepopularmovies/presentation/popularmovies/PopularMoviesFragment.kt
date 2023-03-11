@@ -37,12 +37,21 @@ class PopularMoviesFragment : Fragment() {
         lifecycle.coroutineScope.launch {
             viewModel.effect.collect { effect ->
                 when (effect) {
-                    is PopularMoviesContract.Effect.NavigateToPopularMovieDetailsFragment -> {
+                    is PopularMoviesContract.Effect.NavigateToPopularMovieDetailsScreen -> {
                         navigateToPopularMovieDetailsFragment(effect.movieId)
+                    }
+                    is PopularMoviesContract.Effect.NavigateToFavoriteMoviesScreen -> {
+                        navigateToFavoriteMoviesFragment()
                     }
                 }
             }
         }
+    }
+
+    private fun navigateToFavoriteMoviesFragment() {
+        val action =
+            PopularMoviesFragmentDirections.actionPopularMoviesFragmentToFavoriteMoviesFragment()
+        findNavController().navigate(action)
     }
 
     private fun navigateToPopularMovieDetailsFragment(movieId: Int) {

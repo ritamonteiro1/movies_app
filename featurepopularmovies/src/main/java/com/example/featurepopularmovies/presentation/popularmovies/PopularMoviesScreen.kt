@@ -2,8 +2,9 @@ package com.example.featurepopularmovies.presentation.popularmovies
 
 import android.content.res.Configuration
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material.Scaffold
-import androidx.compose.material.TopAppBar
+import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -30,24 +31,30 @@ internal fun PopularMoviesScreen(
 ) {
     viewModel.handleEvent(PopularMoviesContract.Event.GetPopularMovies)
     val state by viewModel.state.collectAsState()
-    ScreenContent(state = state, onClickCard = { movieId ->
-        viewModel.handleEvent(PopularMoviesContract.Event.OnClickMovieCard(movieId))
-    })
+    ScreenContent(
+        state = state,
+        onClickMovieCard = { movieId ->
+            viewModel.handleEvent(PopularMoviesContract.Event.OnClickMovieCard(movieId))
+        },
+        onClickSeeFavorites = {
+            viewModel.handleEvent(PopularMoviesContract.Event.OnClickSeeFavorites)
+        })
 }
 
 @Composable
 private fun ScreenContent(
     state: PopularMoviesContract.State,
-    onClickCard: (Int) -> Unit,
+    onClickMovieCard: (Int) -> Unit,
+    onClickSeeFavorites: () -> Unit = {},
 ) {
     Scaffold(
-        topBar = { AppBarContent() }) {
+        topBar = { AppBarContent(onClickSeeFavorites = onClickSeeFavorites) }) {
         when (state) {
             is PopularMoviesContract.State.Success -> {
                 val items = state.popularMovies
                 BodyContent(
                     items = items,
-                    onClickCard = onClickCard
+                    onClickMovieCard = onClickMovieCard
                 )
             }
             is PopularMoviesContract.State.Loading -> {
@@ -61,14 +68,27 @@ private fun ScreenContent(
 }
 
 @Composable
-private fun AppBarContent() {
-    TopAppBar(backgroundColor = MoviesTheme.colors.moviesColors.primary) {}
+private fun AppBarContent(
+    onClickSeeFavorites: () -> Unit = {},
+) {
+    TopAppBar(
+        title = { Text(text = "") },
+        backgroundColor = MoviesTheme.colors.moviesColors.primary,
+        actions = {
+            IconButton(onClick = onClickSeeFavorites) {
+                Icon(
+                    imageVector = Icons.Default.Favorite,
+                    contentDescription = "",
+                )
+            }
+        }
+    )
 }
 
 @Composable
 private fun BodyContent(
     items: Flow<PagingData<PopularMovie>>,
-    onClickCard: (Int) -> Unit,
+    onClickMovieCard: (Int) -> Unit,
 ) {
     val lazyItems: LazyPagingItems<PopularMovie> = items.collectAsLazyPagingItems()
 
@@ -80,7 +100,7 @@ private fun BodyContent(
             // TODO(error)
         }
         is LoadState.NotLoading -> {
-            MovieList(lazyItems, onClickCard)
+            MovieList(lazyItems, onClickMovieCard)
         }
     }
 }
@@ -132,7 +152,7 @@ private fun PreviewScreenContent() {
     MoviesAppTheme {
         ScreenContent(
             state = PopularMoviesContract.State.Success(emptyFlow()),
-            onClickCard = {},
+            onClickMovieCard = {},
         )
     }
 }

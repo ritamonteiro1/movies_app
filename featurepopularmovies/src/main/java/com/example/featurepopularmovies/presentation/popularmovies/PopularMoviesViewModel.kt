@@ -31,6 +31,11 @@ class PopularMoviesViewModel(
                     onClickMovieCard(event)
                 }
             }
+            is PopularMoviesContract.Event.OnClickSeeFavorites -> {
+                viewModelScope.launch {
+                    setEffect(PopularMoviesContract.Effect.NavigateToFavoriteMoviesScreen)
+                }
+            }
         }
     }
 
@@ -38,7 +43,7 @@ class PopularMoviesViewModel(
         event: PopularMoviesContract.Event.OnClickMovieCard
     ) {
         setEffect(
-            PopularMoviesContract.Effect.NavigateToPopularMovieDetailsFragment(
+            PopularMoviesContract.Effect.NavigateToPopularMovieDetailsScreen(
                 event.movieId
             )
         )
@@ -54,10 +59,14 @@ object PopularMoviesContract {
     sealed interface Event : EventUi {
         object GetPopularMovies : Event
         data class OnClickMovieCard(val movieId: Int) : Event
+
+        object OnClickSeeFavorites : Event
     }
 
     sealed interface Effect : EffectUi {
-        data class NavigateToPopularMovieDetailsFragment(val movieId: Int) : Effect
+        data class NavigateToPopularMovieDetailsScreen(val movieId: Int) : Effect
+
+        object NavigateToFavoriteMoviesScreen : Effect
     }
 
     sealed interface State : StateUi {
