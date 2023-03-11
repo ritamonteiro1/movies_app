@@ -50,10 +50,10 @@ private fun ScreenContent(
                     onClickCard = onClickCard
                 )
             }
-            PopularMoviesContract.State.Loading -> {
+            is PopularMoviesContract.State.Loading -> {
                 // TODO(initial)
             }
-            PopularMoviesContract.State.Error -> {
+            is PopularMoviesContract.State.Error -> {
                 // TODO(error)
             }
         }

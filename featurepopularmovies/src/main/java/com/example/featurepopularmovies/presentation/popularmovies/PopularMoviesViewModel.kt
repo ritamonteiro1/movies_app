@@ -9,15 +9,11 @@ import com.example.coreui.viewmodel.EventUi
 import com.example.coreui.viewmodel.StateUi
 import com.example.featurepopularmovies.domain.models.PopularMovie
 import com.example.featurepopularmovies.domain.repository.PopularMoviesRepository
-import com.example.featurepopularmovies.presentation.moviedetails.PopularMovieDetailsContract
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
-import kotlin.coroutines.CoroutineContext
 
 class PopularMoviesViewModel(
     private val repository: PopularMoviesRepository,
-    private val dispatcher: CoroutineContext = Dispatchers.Main
 ) : BaseViewModel<PopularMoviesContract.Event, PopularMoviesContract.State, PopularMoviesContract.Effect>() {
 
     override fun createInitialState(): PopularMoviesContract.State {
@@ -25,7 +21,7 @@ class PopularMoviesViewModel(
     }
 
     override fun handleEvent(event: PopularMoviesContract.Event) {
-        viewModelScope.launch(dispatcher) {
+        viewModelScope.launch() {
             when (event) {
                 is PopularMoviesContract.Event.GetPopularMovies -> {
                     val popularMoviesFlow = getPopularMovies()
