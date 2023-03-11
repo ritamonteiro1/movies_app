@@ -50,7 +50,12 @@ private fun ScreenContent(
                     onClickCard = onClickCard
                 )
             }
-            else -> {}
+            PopularMoviesContract.State.Loading -> {
+                // TODO(initial)
+            }
+            PopularMoviesContract.State.Error -> {
+                // TODO(error)
+            }
         }
     }
 }
@@ -69,41 +74,49 @@ private fun BodyContent(
 
     when (lazyItems.loadState.refresh) {
         is LoadState.Loading -> {
-            // Show loading
+            // TODO(loading)
         }
         is LoadState.Error -> {
-            // Show error
+            // TODO(error)
         }
         is LoadState.NotLoading -> {
-            LazyColumn {
-                itemsIndexed(lazyItems) { _, item ->
-                    if (item != null) {
-                        LabeledCard(
-                            cardItems = CardItem(
-                                image = item.posterPath.toMoviePosterUrl(),
-                                texts = listOf(
-                                    CardText(
-                                        title = stringResource(id = R.string.title_movie),
-                                        subtitle = item.title
-                                    ),
-                                    CardText(
-                                        title = stringResource(id = R.string.release_movie),
-                                        subtitle = item.releaseDate
-                                    ),
-                                    CardText(
-                                        title = stringResource(id = R.string.vote_movie),
-                                        subtitle = item.voteAverage.toString()
-                                    ),
-                                    CardText(
-                                        title = stringResource(id = R.string.overview_movie),
-                                        subtitle = item.overview
-                                    ),
-                                )
-                            )
-                        ) {
-                            onClickCard(item.id)
-                        }
-                    }
+            MovieList(lazyItems, onClickCard)
+        }
+    }
+}
+
+@Composable
+private fun MovieList(
+    lazyItems: LazyPagingItems<PopularMovie>,
+    onClickCard: (Int) -> Unit
+) {
+    LazyColumn {
+        itemsIndexed(lazyItems) { _, item ->
+            if (item != null) {
+                LabeledCard(
+                    cardItems = CardItem(
+                        image = item.posterPath.toMoviePosterUrl(),
+                        texts = listOf(
+                            CardText(
+                                title = stringResource(id = R.string.title_movie),
+                                subtitle = item.title
+                            ),
+                            CardText(
+                                title = stringResource(id = R.string.release_movie),
+                                subtitle = item.releaseDate
+                            ),
+                            CardText(
+                                title = stringResource(id = R.string.vote_movie),
+                                subtitle = item.voteAverage.toString()
+                            ),
+                            CardText(
+                                title = stringResource(id = R.string.overview_movie),
+                                subtitle = item.overview
+                            ),
+                        )
+                    )
+                ) {
+                    onClickCard(item.id)
                 }
             }
         }

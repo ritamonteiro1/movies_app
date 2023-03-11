@@ -17,7 +17,7 @@ class PopularMoviesViewModel(
 ) : BaseViewModel<PopularMoviesContract.Event, PopularMoviesContract.State, PopularMoviesContract.Effect>() {
 
     override fun createInitialState(): PopularMoviesContract.State {
-        return PopularMoviesContract.State.Initial
+        return PopularMoviesContract.State.Loading
     }
 
     override fun handleEvent(event: PopularMoviesContract.Event) {
@@ -55,7 +55,8 @@ object PopularMoviesContract {
     }
 
     sealed interface State : StateUi {
-        object Initial : State
+        object Loading : State
         data class Success(val popularMovies: Flow<PagingData<PopularMovie>>) : State
+        object Error : State
     }
 }
