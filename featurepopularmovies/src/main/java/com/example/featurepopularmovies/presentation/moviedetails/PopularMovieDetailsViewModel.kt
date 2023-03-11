@@ -32,6 +32,9 @@ class PopularMovieDetailsViewModel(
                 is PopularMovieDetailsContract.Event.SaveFavoriteMovie -> {
                     saveFavoriteMovie(event.movie)
                 }
+                is PopularMovieDetailsContract.Event.FetchSimilarMovies -> {
+                    setEffect(PopularMovieDetailsContract.Effect.NavigateToSimilarMoviesScreen(event.movieId))
+                }
             }
         }
     }
@@ -64,11 +67,15 @@ object PopularMovieDetailsContract {
         data class GetMovieDetails(val movieId: Int) : Event
         data class SaveFavoriteMovie(val movie: PopularMovieDetail) : Event
         data class DeleteFavoriteMovie(val movieId: Int) : Event
+
+        data class FetchSimilarMovies(val movieId: Int) : Event
     }
 
     sealed interface Effect : EffectUi {
         object FavoriteMovieSaved : Effect
         object FavoriteMovieDeleted : Effect
+
+        data class NavigateToSimilarMoviesScreen(val movieId: Int) : Effect
     }
 
     sealed interface State : StateUi {
