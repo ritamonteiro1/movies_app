@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.coroutineScope
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.designsystem.theme.apptheme.MoviesAppTheme
 import com.example.navigation.SimilarMoviesBoundary
@@ -27,7 +28,10 @@ class PopularMovieDetailFragment : Fragment() {
         return ComposeView(requireContext()).apply {
             setContent {
                 MoviesAppTheme {
-                    PopularMoviesDetailScreen(viewModel = viewModel)
+                    PopularMoviesDetailScreen(
+                        viewModel = viewModel,
+                        onBackPressed = { findNavController().popBackStack() },
+                    )
                 }
             }
         }
@@ -35,6 +39,7 @@ class PopularMovieDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel.handleEvent(PopularMovieDetailsContract.Event.GetMovieDetails(navArgs.movieId))
         setupObservers()
     }
 

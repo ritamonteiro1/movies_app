@@ -30,6 +30,7 @@ class PopularMoviesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel.handleEvent(PopularMoviesContract.Event.GetPopularMovies)
         setupObservers()
     }
 

@@ -12,25 +12,30 @@ import com.example.designsystem.theme.apptheme.MoviesTheme
 
 @Composable
 internal fun PopularMoviesDetailScreen(
-    viewModel: PopularMovieDetailsViewModel
+    viewModel: PopularMovieDetailsViewModel,
+    onBackPressed: () -> Unit,
 ) {
-    ScreenContent()
+    ScreenContent(onBackPressed = onBackPressed)
 }
 
 @Composable
-private fun ScreenContent() {
-    Scaffold(topBar = { AppBarContent() }) {
+private fun ScreenContent(
+    onBackPressed: () -> Unit,
+) {
+    Scaffold(topBar = { AppBarContent(onBackPressed = onBackPressed) }) {
         BodyContent()
     }
 }
 
 @Composable
-private fun AppBarContent() {
+private fun AppBarContent(
+    onBackPressed: () -> Unit,
+) {
     TopAppBar(
         title = { Text(text = "Movie Detail Screen") },
         backgroundColor = MoviesTheme.colors.moviesColors.primary,
         navigationIcon = {
-            IconButton(onClick = { }) {
+            IconButton(onClick = onBackPressed) {
                 Icon(
                     imageVector = Icons.Default.ArrowBack,
                     contentDescription = ""
@@ -51,6 +56,6 @@ private fun BodyContent() {
 @Composable
 private fun PreviewScreenContent() {
     MoviesAppTheme {
-        ScreenContent()
+        ScreenContent(onBackPressed = {})
     }
 }

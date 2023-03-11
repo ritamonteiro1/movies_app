@@ -29,7 +29,6 @@ import kotlinx.coroutines.flow.emptyFlow
 internal fun PopularMoviesScreen(
     viewModel: PopularMoviesViewModel,
 ) {
-    viewModel.handleEvent(PopularMoviesContract.Event.GetPopularMovies)
     val state by viewModel.state.collectAsState()
     ScreenContent(
         state = state,

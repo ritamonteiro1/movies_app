@@ -10,24 +10,31 @@ import com.example.designsystem.theme.apptheme.MoviesAppTheme
 import com.example.designsystem.theme.apptheme.MoviesTheme
 
 @Composable
-internal fun FavoriteMoviesScreen(viewModel: FavoriteMoviesViewModel) {
-    ScreenContent()
+internal fun FavoriteMoviesScreen(
+    viewModel: FavoriteMoviesViewModel,
+    onBackPressed: () -> Unit,
+) {
+    ScreenContent(onBackPressed = onBackPressed)
 }
 
 @Composable
-private fun ScreenContent() {
-    Scaffold(topBar = { AppBarContent() }) {
+private fun ScreenContent(
+    onBackPressed: () -> Unit,
+) {
+    Scaffold(topBar = { AppBarContent(onBackPressed = onBackPressed) }) {
         BodyContent()
     }
 }
 
 @Composable
-private fun AppBarContent() {
+private fun AppBarContent(
+    onBackPressed: () -> Unit,
+) {
     TopAppBar(
         title = { Text(text = "Favorite Screen") },
         backgroundColor = MoviesTheme.colors.moviesColors.primary,
         navigationIcon = {
-            IconButton(onClick = {  }) {
+            IconButton(onClick = onBackPressed) {
                 Icon(
                     imageVector = Icons.Default.ArrowBack,
                     contentDescription = ""
@@ -48,6 +55,6 @@ private fun BodyContent() {
 @Composable
 private fun PreviewScreenContent() {
     MoviesAppTheme {
-        ScreenContent()
+        ScreenContent(onBackPressed = {})
     }
 }
