@@ -7,7 +7,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.designsystem.theme.apptheme.MoviesAppTheme
 
 @Composable
-internal fun PopularMoviesDetailScreen(){
+internal fun PopularMoviesDetailScreen(
+    viewModel: PopularMovieDetailsViewModel
+){
     ScreenContent()
 }
 

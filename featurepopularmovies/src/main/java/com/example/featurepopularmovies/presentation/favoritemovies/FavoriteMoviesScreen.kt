@@ -7,7 +7,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.designsystem.theme.apptheme.MoviesAppTheme
 
 @Composable
-internal fun FavoriteMoviesScreen() {
+internal fun FavoriteMoviesScreen(viewModel: FavoriteMoviesViewModel) {
     ScreenContent()
 }
 
