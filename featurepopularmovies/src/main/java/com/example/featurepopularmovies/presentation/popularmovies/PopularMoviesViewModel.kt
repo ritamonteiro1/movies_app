@@ -21,21 +21,27 @@ class PopularMoviesViewModel(
     }
 
     override fun handleEvent(event: PopularMoviesContract.Event) {
-        viewModelScope.launch() {
-            when (event) {
-                is PopularMoviesContract.Event.GetPopularMovies -> {
-                    val popularMoviesFlow = getPopularMovies()
-                    setState(PopularMoviesContract.State.Success(popularMoviesFlow))
-                }
-                is PopularMoviesContract.Event.OnClickMovieCard -> {
-                    setEffect(
-                        PopularMoviesContract.Effect.NavigateToPopularMovieDetailsFragment(
-                            event.movieId
-                        )
-                    )
+        when (event) {
+            is PopularMoviesContract.Event.GetPopularMovies -> {
+                val popularMoviesFlow = getPopularMovies()
+                setState(PopularMoviesContract.State.Success(popularMoviesFlow))
+            }
+            is PopularMoviesContract.Event.OnClickMovieCard -> {
+                viewModelScope.launch {
+                    onClickMovieCard(event)
                 }
             }
         }
+    }
+
+    private suspend fun onClickMovieCard(
+        event: PopularMoviesContract.Event.OnClickMovieCard
+    ) {
+        setEffect(
+            PopularMoviesContract.Effect.NavigateToPopularMovieDetailsFragment(
+                event.movieId
+            )
+        )
     }
 
     private fun getPopularMovies(): Flow<PagingData<PopularMovie>> {
